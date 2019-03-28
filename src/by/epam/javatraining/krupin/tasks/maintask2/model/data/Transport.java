@@ -4,7 +4,7 @@ import by.epam.javatraining.krupin.tasks.maintask2.model.logic.ClassChecker;
 
 import java.util.Objects;
 
-public abstract class Transport {
+public class Transport {
 
     private int cost;
     private double fuel_flow;
