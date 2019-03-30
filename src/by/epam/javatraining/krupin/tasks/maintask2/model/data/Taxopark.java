@@ -1,5 +1,7 @@
 package by.epam.javatraining.krupin.tasks.maintask2.model.data;
 
+import by.epam.javatraining.krupin.tasks.maintask2.model.logic.ClassChecker;
+
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -15,7 +17,14 @@ public class Taxopark {
         transports = new Transport[count];
     }
 
-    public Taxopark(Taxopark taxopark) {
+    public Taxopark(Transport[] tran){
+        transports = new Transport[tran.length];
+        for(int i = 0; i < tran.length; i++){
+            transports[i] = new Transport(tran[i]);
+        }
+    }
+
+    public Taxopark(Taxopark taxopark) throws Exception {
         if(taxopark.getTransport().length == 0){
             new Taxopark();
         }else{
@@ -59,7 +68,7 @@ public class Taxopark {
         }
     }
 
-    public void add(Taxopark taxopark){
+    public void add(Taxopark taxopark) throws Exception {
         if(taxopark.getTransport().length != 0){
             for(int i = 0; i < taxopark.getTransport().length; i++){
                 if(taxopark.getTransportByIndex(i) != null){
@@ -78,11 +87,13 @@ public class Taxopark {
     }
 
 
-    public void setTransportByIndex(Transport transport, int index) {
+    public void setTransportByIndex(Transport transport, int index) throws Exception {
+        ClassChecker.checkTaxoparkIndex(transports, index);
         transports[index] = transport;
     }
 
-    public Transport getTransportByIndex(int i) {
+    public Transport getTransportByIndex(int i) throws Exception {
+        ClassChecker.checkTaxoparkIndex(transports, i);
         return transports[i];
     }
 
