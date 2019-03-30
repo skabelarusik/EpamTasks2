@@ -31,7 +31,7 @@ public class ClassSorter {
         }
     }
 
-    public static void sortTransportAgeIncrease(Taxopark taxopark){
+    public static void sortTransportAgeIncrease(Taxopark taxopark) throws Exception {
 
         if(taxopark.getTransport().length != 0){
             int max;
