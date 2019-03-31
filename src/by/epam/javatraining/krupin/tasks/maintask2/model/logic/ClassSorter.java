@@ -2,10 +2,19 @@ package by.epam.javatraining.krupin.tasks.maintask2.model.logic;
 
 import by.epam.javatraining.krupin.tasks.maintask2.model.data.Taxopark;
 import by.epam.javatraining.krupin.tasks.maintask2.model.data.Transport;
+import org.apache.log4j.Logger;
 
 public class ClassSorter {
 
+    private static final Logger LOGGER;
+
+    static {
+        LOGGER = Logger.getLogger(ClassSorter.class);
+    }
+
     public static Taxopark sortTransportCostDecrease(Taxopark taxopark) throws Exception {
+        LOGGER.info("Sort transport by cost decrease");
+
         if(taxopark.getTransport().length != 0){
             int min;
             Transport temp;
@@ -33,6 +42,7 @@ public class ClassSorter {
     }
 
     public static Taxopark sortTransportAgeIncrease(Taxopark taxopark) throws Exception {
+        LOGGER.info("Sort transport by age increase");
 
         if(taxopark.getTransport().length != 0){
             int max;
