@@ -5,8 +5,7 @@ import by.epam.javatraining.krupin.tasks.maintask2.model.data.Transport;
 
 public class ClassSorter {
 
-    public static void sortTransportCostDecrease(Taxopark taxopark) throws Exception {
-
+    public static Taxopark sortTransportCostDecrease(Taxopark taxopark) throws Exception {
         if(taxopark.getTransport().length != 0){
             int min;
             Transport temp;
@@ -29,9 +28,11 @@ public class ClassSorter {
                 }
             }
         }
+
+        return taxopark;
     }
 
-    public static void sortTransportAgeIncrease(Taxopark taxopark) throws Exception {
+    public static Taxopark sortTransportAgeIncrease(Taxopark taxopark) throws Exception {
 
         if(taxopark.getTransport().length != 0){
             int max;
@@ -55,6 +56,7 @@ public class ClassSorter {
                 }
             }
         }
+    return taxopark;
     }
 
 }
