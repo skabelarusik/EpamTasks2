@@ -20,6 +20,7 @@ public class Taxopark {
     public Taxopark(Transport[] tran){
         transports = new Transport[tran.length];
         for(int i = 0; i < tran.length; i++){
+            if(tran[i] != null)
             transports[i] = new Transport(tran[i]);
         }
     }
