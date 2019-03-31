@@ -9,7 +9,17 @@ public class ClassSelector {
     public static Taxopark selectListTransportRangeAge(Taxopark taxopark, int minAge, int maxAge) throws Exception {
         Taxopark listTransport = null;
         if(taxopark.getTransport().length != 0){
-            listTransport = new Taxopark();
+           int count = 0;
+           for(int i = 0 ; i < taxopark.getTransport().length; i++){
+               if(taxopark.getTransportByIndex(i) != null &&
+                       taxopark.getTransportByIndex(i).getAge() >= minAge &&
+                       taxopark.getTransportByIndex(i).getAge() <= maxAge){
+                  count++;
+           }
+           }
+
+               listTransport = new Taxopark(count);
+
             for(int i = 0 ; i < taxopark.getTransport().length; i++){
                 if(taxopark.getTransportByIndex(i) != null &&
                         taxopark.getTransportByIndex(i).getAge() >= minAge &&
@@ -25,7 +35,16 @@ public class ClassSelector {
         Taxopark list = null;
 
         if(taxopark.getTransport().length != 0){
-            list = new Taxopark();
+            int count = 0;
+            for(int i = 0 ; i < taxopark.getTransport().length; i++){
+                if(taxopark.getTransportByIndex(i) != null &&
+                        taxopark.getTransportByIndex(i).getAge() >= minFlow &&
+                        taxopark.getTransportByIndex(i).getAge() <= maxFlow){
+                    count++;
+                }
+            }
+
+            list = new Taxopark(count);
             for (int i = 0; i < taxopark.getTransport().length; i++){
                 if(taxopark.getTransportByIndex(i) != null &&
                         taxopark.getTransportByIndex(i).getFuel_flow() >= minFlow &&
